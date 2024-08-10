@@ -12,7 +12,7 @@ import { motion } from 'framer-motion'
 const services = [
   {
     num: '01',
-    title: 'Веб разработчик',
+    title: 'Веб Разработчик',
     description: 'Разработка сайтов от верстки до хостинга. Реализую любые идеи: от визиток до интернет-магазинов',
     href: ''
   },
@@ -38,7 +38,7 @@ const services = [
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-4 md:gap-36">
+    <main className="flex flex-col gap-4 md:gap-36 mt-28">
       <section className='h-full'>
         <div className="container mx-auto h-full">
           <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">

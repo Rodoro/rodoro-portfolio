@@ -9,7 +9,7 @@ import { useEffect, useLayoutEffect, useState } from "react"
 const Header = () => {
 
     return (
-        <header className="py-8 xl:px-12">
+        <header className="py-8 xl:px-12 fixed top-0 w-full backdrop-blur-xl z-50 bg-[#080808]/[.40]">
             <div className="container mx-auto flex items-center justify-between">
                 <Link href='/'>
                     <Image src={"/assets/img/logo-text.png"} alt={"logo"} width={145} height={64} priority quality={100} className='w-[100px] md:w-[145px] object-contain' />
