@@ -40,7 +40,7 @@ const State = () => {
                                     suffix={index==3 ? '+' : ''}
                                     className="text-4xl xl:text-6xl font-extrabold text-primary"
                                 />
-                                <p className={`${item.text.length < 15 ? 'max-w-[100px]' : 'max-w-[150px]'} leading-snug text-[20px] text-white`}>
+                                <p className={`${item.text.length < 15 ? 'max-w-[100px]' : 'max-w-[150px]'} leading-snug md:text-[20px] text-white`}>
                                     {item.text}
                                 </p>
                             </div>

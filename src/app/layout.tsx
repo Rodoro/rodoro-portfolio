@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Anonymous_Pro, Bungee_Outline } from "next/font/google";
 import "./globals.css";
 import Header from "@/containers/layout/Header";
+import StairTransition from "@/containers/transition/StairTransition";
+import PageTransition from "@/containers/transition/PageTransition";
 
 const anonymous = Anonymous_Pro({
   subsets: ["latin"],
@@ -29,7 +31,10 @@ export default function RootLayout({
     <html lang="ru">
       <body className={`${anonymous.variable} ${bungee.variable}`}>
         <Header />
-        {children}
+        <StairTransition />
+        <PageTransition>
+          {children}
+        </PageTransition>
       </body>
     </html>
   );
