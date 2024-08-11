@@ -6,13 +6,19 @@ import Socials from "@/containers/page/Socials";
 import State from "@/containers/page/State";
 import Image from "next/image";
 import Link from "next/link";
-import { BsArrowDownRight } from 'react-icons/bs'
+import { BsArrowDownRight, BsArrowUpRight } from 'react-icons/bs'
 import { motion } from 'framer-motion'
 import { FaCss3, FaJs, FaReact, FaHtml5, FaFigma, FaNodeJs, FaUnity, FaDocker } from 'react-icons/fa'
 import { SiTailwindcss, SiNextdotjs, SiNestjs, SiAdobe, SiVisualstudiocode } from 'react-icons/si'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/common/tabs";
 import { ScrollArea } from "@/components/common/scroll-area";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/common/tooltip";
+import { useState } from "react";
+import { TbArrowUpRight } from "react-icons/tb";
+import { FaGithub } from "react-icons/fa"
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import WorkSliderBtn from "@/components/common/slider/WorkSliderBtn";
 
 const services = [
   {
@@ -155,7 +161,36 @@ const skills = {
   ]
 }
 
+const projects = [
+  {
+    num: "01",
+    category: "Frontend проект",
+    title: "project 1",
+    description: "Создан адаптивный сайт, максимально оптимищированый под разные устройства. Добавленно множества уникальных анимаций",
+    stack: [{ name: "React" }, { name: "Tailwind" }, { name: "Next" }],
+    image: "/assets/img/work/thumb1.png",
+    github: ''
+  },
+  {
+    num: "02",
+    category: "Frontend проект",
+    title: "project 2",
+    description: "Lorem",
+    stack: [{ name: "TypeScript" }, { name: "React" }, { name: "Tailwind" }],
+    image: "/assets/img/work/thumb1.png",
+    live: '',
+    github: ''
+  }
+]
+
 export default function Home() {
+  const [project, setProject] = useState(projects[0])
+
+  const handleSlideChange = (swiper: any) => {
+    const currentIndex = swiper.activeIndex;
+    setProject(projects[currentIndex])
+  }
+
   return (
     <main className="flex flex-col gap-4 md:gap-36 mt-28">
       <section className='h-full'>
@@ -216,8 +251,8 @@ export default function Home() {
         </div>
       </section>
       <section className='h-full'>
-        <div className='min-h-[80vh] flex justify-center py-12 xl:py-0'>
-          <div className='container mx-auto'>
+        <div className='h-full flex justify-center py-12 xl:py-0'>
+          <div className='container mx-auto min-h-[618px]'>
             <Tabs defaultValue='skills' className='flex flex-col xl:flex-row gap-[60px]'>
               <div className='flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6'>
                 <div className='flex flex-col gap-6 text-center xl:text-left'>
@@ -299,6 +334,88 @@ export default function Home() {
                 </TabsContent>
               </div>
             </Tabs>
+          </div>
+        </div>
+      </section>
+      <section className="h-full">
+        <div className="h-full flex justify-center pb-12 xl:px-0">
+          <div className="container mx-auto">
+            <div className="flex flex-col xl:flex-row xl:gap-[30px]">
+              <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
+                <div className="flex flex-col gap-[30px] h-[50%]">
+                  <div className="text-8xl leading-none text-transparent text-outline font-bungee">
+                    {project.num}
+                  </div>
+                  <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-primary transition-all duration-500 capitalize">
+                    {project.category}
+                  </h2>
+                  <p className="text-white opacity-60 text-[20px]">{project.description}</p>
+                  <ul className="flex gap-4">
+                    {project.stack.map((item, index) => {
+                      return <li key={index} className="text-xl text-primary">
+                        {item.name}
+                        {index !== project.stack.length - 1 && ','}
+                      </li>
+                    })}
+                  </ul>
+                  <div className="border dorder-white opacity-60"></div>
+                  <div className="flex items-center gap-4">
+                    {project.live != null &&
+                      <Link href={project.live} >
+                        <TooltipProvider delayDuration={100}>
+                          <Tooltip>
+                            <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-[#242329] flex justify-center items-center group">
+                              <TbArrowUpRight className="text-white text-3xl group-hover:text-primary" />
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p>Открыть</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </Link>
+                    }
+                    {project.github != null &&
+                      <Link href={project.github} >
+                        <TooltipProvider delayDuration={100}>
+                          <Tooltip>
+                            <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-[#242329] flex justify-center items-center group">
+                              <FaGithub className="text-white text-3xl group-hover:text-primary" />
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p>Репозиторий</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </Link>
+                    }
+                  </div>
+                </div>
+              </div>
+              <div className="w-full xl:w-[50%] xl:h-[460px]">
+                <Swiper
+                  spaceBetween={30}
+                  slidesPerView={1}
+                  className="xl:h-[520px] mb-12"
+                  onSlideChange={handleSlideChange}
+                >
+                  {projects.map((project, index) => {
+                    return <SwiperSlide key={index} className="w-full">
+                      <div className="h-[460px] relative group flex justify-center items-center">
+                        <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
+                        <div className="relative w-full h-full">
+                          <Image src={project.image} fill className="object-cover" alt="project" />
+                        </div>
+
+                      </div>
+                    </SwiperSlide>
+                  })}
+                  <WorkSliderBtn
+                    containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
+                    btnStyles='bg-primary hover:bg-primary-foreground xl:rounded-full text-background text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all'
+                  />
+                </Swiper>
+              </div>
+            </div>
           </div>
         </div>
       </section>
