@@ -38,18 +38,9 @@ const Photo = () => {
                         r="202.5"
                         fill="#D66146"
                     /> */}
-                    <g filter="url(#filter0_d_8_31)">
-                        <circle cx="253" cy="253" r="202.5" fill="#D66146" />
-                    </g>
-                    <defs>
-                        <filter id="filter0_d_8_31" x="0.400002" y="0.400002" width="566.2" height="566.2" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                            <feGaussianBlur stdDeviation="33.3" />
-                            <feColorMatrix type="matrix" values="0 0 0 0 0.894118 0 0 0 0 0.478431 0 0 0 0 0.286275 0 0 0 1 0" />
-                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_8_31" result="shape" />
-                        </filter>
-                    </defs>
+                    
                 </motion.svg>
+                <div className='top-0 bottom-0 right-0 left-0 m-auto absolute h-[405px] w-[405px] rounded-full bg-[#D66146] shadow-[0_0_52px_12px_rgba(228,122,73,1)]' />
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1, transition: { delay: 2.4, duration: 0.4, ease: 'easeInOut' }, }}

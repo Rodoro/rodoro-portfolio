@@ -166,20 +166,21 @@ const projects = [
     num: "01",
     category: "Frontend проект",
     title: "project 1",
-    description: "Создан адаптивный сайт, максимально оптимищированый под разные устройства. Добавленно множества уникальных анимаций",
+    description: "Создан адаптивный сайт, максимально оптимизированный под разные устройства. Добавлены множественные уникальные анимации.",
     stack: [{ name: "React" }, { name: "Tailwind" }, { name: "Next" }],
     image: "/assets/img/work/thumb1.png",
-    github: ''
+    github: 'https://github.com/Rodoro/nl-agency',
+    live: ''
   },
   {
     num: "02",
     category: "Frontend проект",
     title: "project 2",
-    description: "Lorem",
-    stack: [{ name: "TypeScript" }, { name: "React" }, { name: "Tailwind" }],
-    image: "/assets/img/work/thumb1.png",
-    live: '',
-    github: ''
+    description: "Реализована уникальная функция: приломления света от линзы, за счет использования шейдеров GLSL. Проработано множества мелких деталий",
+    stack: [{ name: "TypeScript" }, { name: "React" }, { name: "Tailwind" }, { name: "GLSL" }],
+    image: "/assets/img/work/thumb2.png",
+    github: 'https://github.com/Rodoro/inpulse-client',
+    live: ''
   }
 ]
 
@@ -360,7 +361,7 @@ export default function Home() {
                   </ul>
                   <div className="border dorder-white opacity-60"></div>
                   <div className="flex items-center gap-4">
-                    {project.live != null &&
+                    {(project.live != null && project.live != '') &&
                       <Link href={project.live} >
                         <TooltipProvider delayDuration={100}>
                           <Tooltip>
@@ -374,7 +375,7 @@ export default function Home() {
                         </TooltipProvider>
                       </Link>
                     }
-                    {project.github != null &&
+                    {(project.github != null && project.github != '') &&
                       <Link href={project.github} >
                         <TooltipProvider delayDuration={100}>
                           <Tooltip>
