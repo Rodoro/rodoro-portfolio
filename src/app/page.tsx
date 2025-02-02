@@ -222,7 +222,7 @@ export default function Home() {
         </div>
         <State />
       </section>
-      <section className='h-full'>
+      {/* <section className='h-full'>
         <div className='min-h-[80vh] flex flex-col justify-center py-12 xl:py-0'>
           <div className='container mx-auto'>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-[60px]'>
@@ -419,7 +419,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 }
