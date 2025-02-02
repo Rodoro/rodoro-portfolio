@@ -6,7 +6,7 @@ const Photo = () => {
     return (
         <div className='w-full h-full relative'>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 2, duration: 0.4, ease: 'easeIn' }, }}>
-                <div className='top-0 bottom-0 right-0 left-0 m-auto absolute -z-10 h-[220px] w-[220px] xl:h-[405px] xl:w-[405px] rounded-full bg-[#D66146] shadow-[0_0_52px_12px_rgba(228,122,73,1)]' />
+
                 <motion.svg
                     className="w-[300px] xl:w-[506px] h-[300px] xl:h-[506px]"
                     fill='transparent'
@@ -29,7 +29,7 @@ const Photo = () => {
                         transition={{
                             duration: 20,
                             repeat: Infinity,
-                            // repeatType: 'reverse',
+                            repeatType: 'reverse',
                         }}
                     />
                     {/* <motion.circle
@@ -38,8 +38,9 @@ const Photo = () => {
                         r="202.5"
                         fill="#D66146"
                     /> */}
-
+                    
                 </motion.svg>
+                <div className='top-0 bottom-0 right-0 left-0 m-auto absolute h-[405px] w-[405px] rounded-full bg-[#D66146] shadow-[0_0_52px_12px_rgba(228,122,73,1)]' />
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1, transition: { delay: 2.4, duration: 0.4, ease: 'easeInOut' }, }}
