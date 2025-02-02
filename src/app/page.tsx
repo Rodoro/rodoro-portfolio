@@ -420,6 +420,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className="h-full">
+        <div className="h-full flex justify-center pb-12 xl:px-0 container mx-auto">
+                
+        </div>
+      </section>
     </main>
   );
 }
